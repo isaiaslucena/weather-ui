@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
 import { darkTheme, lightTheme } from '../themes/themes';
-import { MdBrightness4 } from 'react-icons/md';
 import Head from 'next/head';
 import Body from './Body';
 import { getLocalStorageData } from '../utils/getLocalStorageData';
@@ -44,10 +42,7 @@ const Layout = () => {
         <link href="/assets/css/owfont-regular.min.css" rel="stylesheet" type="text/css" />
       </Head>
       <CssBaseline />
-      <IconButton onClick={changeThemeHandler}>
-        <MdBrightness4 />
-      </IconButton>
-      <Body currentTheme={currentTheme} />
+      <Body currentTheme={currentTheme} changeThemeHandler={changeThemeHandler} />
     </ThemeProvider>
   )
 }

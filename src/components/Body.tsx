@@ -5,10 +5,13 @@ import { getWeatherByCityId, getWeatherByCityName } from '../actions/getWeather'
 import { cityWeatherDummyData } from '../utils/cityWeatherDummyData';
 import { getLocalStorageData } from '../utils/getLocalStorageData';
 import { CityWeather } from '../interfaces';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import { MdBrightness4 } from 'react-icons/md';
 
 const DEFAULT_CITY_ID = 3451190; // Rio de Janeiro - RJ
 
-const Body = ({ currentTheme }: any) => {
+const Body = ({ currentTheme, changeThemeHandler }: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cityName, setCityName] = useState<string>('');
   const [formattedCityName, setFormattedCityName] = useState<string>('');
@@ -69,8 +72,15 @@ const Body = ({ currentTheme }: any) => {
   }, []);
 
   return (
-    <Container maxWidth="xs" style={{ paddingTop: 15 }}>
+    <Container maxWidth="xs" style={{ paddingTop: 10 }}>
       <Grid container spacing={2} justify="center" alignItems="center" direction="column">
+        <Grid item xs={12}>
+          <Tooltip title="Toggle dark/light theme" aria-label="Toggle dark/light theme">
+            <IconButton onClick={changeThemeHandler}>
+              <MdBrightness4 />
+            </IconButton>
+          </Tooltip>
+        </Grid>
         <Grid item xs={12} container direction="row" spacing={1}>
           <Grid item xs={8}>
             <TextField
