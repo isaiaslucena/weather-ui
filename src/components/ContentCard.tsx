@@ -79,13 +79,6 @@ const ContentCard = ({ cityWeather, theme }: ContentCardProps) => {
       <CardActions>
           <img src={googleStaticMapsUrl} style={{ width: '100%' }} />
       </CardActions>
-        {/* <CardMedia
-          alt="Temperature"
-          component="img"
-          style={{ height: 180 }}
-          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-          title="Temperature"
-        /> */}
     </Card>
   )
 };
